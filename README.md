@@ -4,25 +4,16 @@ In this repository, we perform the diarization of audio extracted from SharePoin
 
 # parts of the transcription code. 
 
-# 1
-first we import required libraris to audio processing, shareponit conection
-# 2
-define the parameters model to stable whisper
-# 3 
-connect  to share pont
-# 4
-Extract files from share point al define path to save . txt file in one drive
+# 1 first we import required libraris to audio processing, shareponit conection
+# 2 define the parameters model to stable whisper
+# 3 connect  to share pont
+# 4 Extract files from share point al define path to save . txt file in one drive
 
-# 5
-preprocesing file
-# 6
-apply model with VAD 
-# 7
-Apply diarization
-# 8 
-Save file in one drive
-# 9 
-delete original audio file from one drive
+# 5 preprocesing file
+# 6 apply model with VAD 
+# 7 Apply diarization
+# 8 Save file in one drive
+# 9 delete original audio file from one drive
 
 
 
