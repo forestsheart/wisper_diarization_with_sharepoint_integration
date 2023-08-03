@@ -106,7 +106,7 @@ for i in range(0, len(root_folder.files)):
             normalizedsound = effects.normalize(rawsound)
             normalizedsound.export(path, format='wav')
             #model with vad silence detecction to improve large-v2 model and regrouping
-            result = model.transcribe(local_file_name,language="es",regroup='sp=.* /。/?/？/．/!/！',
+            result = model.transcribe(path,language="es",regroup='sp=.* /。/?/？/．/!/！',
                                   vad=True#
                                   
                                   )  # aplicamos whisper
