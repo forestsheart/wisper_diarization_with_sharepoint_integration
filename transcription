@@ -94,12 +94,7 @@ for i in range(0, len(root_folder.files)):
         source_file.download(local_file).execute_query()#download the file
         print("[Ok] file has been downloaded: {0}".format(path))
        
-       #model with vad silence detecction to improve large-v2 model and regrouping
-        result = model.transcribe(local_file_name,language="es",regroup='sp=.* /。/?/？/．/!/！',
-                                  vad=True#
-                                  
-                                  )  # aplicamos whisper
-        segments = result.to_dict()["segments"]#result["segments"]  # extract segments
+       
 #pre-procesing mp3 files
         if path[-3:] == 'mp3':
             subprocess.call(['ffmpeg', '-i', path, path[:-3]+'wav', '-y'])
@@ -110,7 +105,12 @@ for i in range(0, len(root_folder.files)):
             rawsound = rawsound.set_frame_rate(16000)
             normalizedsound = effects.normalize(rawsound)
             normalizedsound.export(path, format='wav')
-            
+            #model with vad silence detecction to improve large-v2 model and regrouping
+            result = model.transcribe(local_file_name,language="es",regroup='sp=.* /。/?/？/．/!/！',
+                                  vad=True#
+                                  
+                                  )  # aplicamos whisper
+            segments = result.to_dict()["segments"]#result["segments"]  # extract segments
             #diarization 
             with contextlib.closing(wave.open(path, 'r')) as f:
                 frames = f.getnframes()
